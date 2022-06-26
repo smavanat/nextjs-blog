@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Layout, {siteTitle} from '../components/layout';
 import utilstyles from '../styles/utils.module.css';
 import { getSortedPostsData} from '../lib/posts';
+import Link from 'next/Link';
+import Date from '../components/date';
 
 export async function getStaticProps(){
   const allPostsData = getSortedPostsData();
@@ -18,7 +20,9 @@ export default function Home({allPostsData}) {
   <a href = "https://netjs.org/learn">our Next.js tutorial</a>)</p></section>
   <section className={`${utilstyles.headingMd} ${utilstyles.padding1px}`}>
     <h2 className={utilstyles.headingLg}>Blog</h2><u1 className = {utilstyles.list}>
-      {allPostsData.map(({id, date, title}) => (<li className={utilstyles.listItem} key = {id}>{title}<br />{id}<br />{date}</li>))}
+      {allPostsData.map(({id, date, title}) => 
+      (<li className={utilstyles.listItem} key = {id}><Link href ={`/posts/${id}`}><a>{title}</a></Link><br/>
+      <small className={utilSyles.lightText}><Date dateString={date}/></small></li>))}
       </u1> </section> </Layout>
   );
 }
