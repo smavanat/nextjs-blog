@@ -16,13 +16,13 @@ export default function Home({allPostsData}) {
   return (
   <Layout home><Head><title>{siteTitle}</title></Head>
   <section className={utilstyles.headingMd}><p>[I am a student completing this task as a work experience project in Next.js]</p>
-  <p>(This is a sample website - you'll be building a site like this on {' '}
+  <p>(This is a sample website - you will be building a site like this on 
   <a href = "https://netjs.org/learn">our Next.js tutorial</a>)</p></section>
   <section className={`${utilstyles.headingMd} ${utilstyles.padding1px}`}>
     <h2 className={utilstyles.headingLg}>Blog</h2><u1 className = {utilstyles.list}>
       {allPostsData.map(({id, date, title}) => 
       (<li className={utilstyles.listItem} key = {id}><Link href ={`/posts/${id}`}><a>{title}</a></Link><br/>
-      <small className={utilSyles.lightText}><Date dateString={date}/></small></li>))}
+      <small className={utilstyles.lightText}></small></li>))}
       </u1> </section> </Layout>
   );
 }
